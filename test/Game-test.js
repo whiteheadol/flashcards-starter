@@ -27,12 +27,12 @@ describe('Game', function() {
   });
 
   it('should be a function', function() {
-    const game = new Game();
+    const game = new Game(round);
     expect(Game).to.be.a('function');
   });
 
   it('should be an instance of Game', function() {
-    const game = new Game();
+    const game = new Game(round);
     expect(game).to.be.an.instanceof(Game);
   });
 
@@ -41,4 +41,12 @@ describe('Game', function() {
     expect(game.currentRound).to.equal(round);
   });
 
+  it('there should be a method to start the game and create cards', function() {
+    const game = new Game(round);
+    game.start();
+    expect(game.deck[0]).to.deep.equal(cardOne);
+  });
+
+  //within the start method, an iterator to loop through the data array
+  //and instantiate new instances
 })
