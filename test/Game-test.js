@@ -9,7 +9,7 @@ const Game = require('../src/Game');
 
 describe('Game', function() {
 
-  let cardOne, cardTwo, cardThree, turnOne, deck, round;
+  let cardOne, cardTwo, cardThree, turnOne, deck, round, game;
 
   beforeEach(() => {
     cardOne = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -18,25 +18,22 @@ describe('Game', function() {
     turnOne = new Turn('object', cardOne);
     deck = new Deck([cardOne, cardTwo, cardThree]);
     round = new Round(deck);
+    game = new Game(round);
   });
 
   it('should be a function', function() {
-    const game = new Game(round);
     expect(Game).to.be.a('function');
   });
 
   it('should be an instance of Game', function() {
-    const game = new Game(round);
     expect(game).to.be.an.instanceof(Game);
   });
 
   it('should keep track of the current round', function() {
-    const game = new Game(round);
     expect(game.currentRound).to.exist;
   });
 
   it('should be a method to start the game and create cards in the deck', function() {
-    const game = new Game(round);
     game.start();
     expect(game.currentRound.deck.cards.length).to.equal(30);
     expect(game.currentRound.deck.cards[0]).to.deep.equal(cardOne);
@@ -44,7 +41,6 @@ describe('Game', function() {
   });
 
   it('should instantiate a new round using the current deck', function() {
-    const game = new Game(round);
     game.start();
     expect(game.currentRound.deck).to.exist;
     expect(game.currentRound.turns).to.equal(0);
