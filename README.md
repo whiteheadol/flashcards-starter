@@ -1,71 +1,51 @@
-# FlashCards Starter Kit
+# FlashCards
 
-## Fork This Repo
+<img width="500" alt="Rock, Paper, Scissors Project" src="https://user-images.githubusercontent.com/96206823/160006543-0ccf1019-ddfd-44a4-a84f-9340dff7aefe.png">
 
-On the top right corner of this page, click the **Fork** button.
+## Table of Contents
 
-## Setup
+  - [Introduction](#introduction)
+  - [Technologies](#technologies)
+  - [Features](#features)
+  - [Page Demo](#page-demo)
+  - [Set Up](#set-up)
+  - [Contributors](#contributors)
+  - [Project Specs](#project-specs)
+  - [Project GitHub Repo](#project-github-repo)
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+## Introduction
+The Flashcards project was assigned as a first project in Turing School of Software and Design's Front End Module 2. Students were instructed to work independently and given four days to complete their work. When complete, the Flashcards game is playable entirely in the CLI.
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+Although students had previously worked with Mocha/Chai testing, this was the first time they wrote tests of their own. I personally feel that working through this project strengthened my knowledge of both unit testing and class to class interaction.
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+## Technologies
+  - Javascript
+  - Mocha Testing Framework
+  - Chai Assertion Library
 
-```bash
-npm install
-```
+## Features
+- When a user runs `node index.js` to begin the game, they'll be told that the game is starting and they have 30 questions in their deck.
+- Then, the first answer will appear in the terminal.
+- To select an answer, the user will type '1', '2', or '3'. They can also use their keyboard arrows to select their answer.
+- Type **enter** to submit the answer.
+- Feedback will appear on the screen telling the user if they got the answer correct or incorrect.
+- The user may exit the game early with the shortcut **ctrl + c**, however they will not receive feedback on their score if they do so.
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+## Page Demo
+An example of the game in action:
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+![Example of the game in action!](https://media.giphy.com/media/Zwt6KncmoUurOGCS15/giphy.gif)
 
-```bash
-Your project is running...
-```
+## Set Up
+1. Fork and clone this repo.
+2. `cd` into the root directory.
+3. Run `node index.js` to play the game in your own CLI!
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+## Contributors
+- Olivia Whitehead (GitHub: whiteheadol)
 
+## Project Specs
+- The spec for this project can be found [here](https://frontend.turing.edu/projects/flash-cards.html).
 
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
+## Project GitHub Repo
+- The project repo can be found [here](https://github.com/whiteheadol/flashcards-starter).

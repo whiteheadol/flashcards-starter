@@ -27,7 +27,7 @@ class Round {
     if (this.turns === this.incorrectGuesses.length) {
       return `0%`;
     } else {
-      return `${this.incorrectGuesses.length / this.turns *100}%`;
+      return `${((this.turns - this.incorrectGuesses.length) / this.turns) * 100 }%`;
     }
   }
 
