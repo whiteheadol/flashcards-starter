@@ -14,16 +14,13 @@ class Round {
 
   takeTurn(guess) {
     let newTurn = new Turn(guess, this.currentCard);
+    newTurn.evaluateGuess();
     if (guess !== this.currentCard.correctAnswer) {
       this.incorrectGuesses.push(this.currentCard.id);
-      this.turns++;
-      this.currentCard = this.returnCurrentCard();
-      return `incorrect!`;
-    } else {
-      this.turns++;
-      this.currentCard = this.returnCurrentCard();
-      return `correct!`;
     }
+    this.turns++;
+    this.currentCard = this.returnCurrentCard();
+    return newTurn.giveFeedback();
   }
 
   calculatePercentCorrect() {

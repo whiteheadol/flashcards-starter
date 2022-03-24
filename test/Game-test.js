@@ -6,7 +6,6 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
-// const prototypeQuestions = data.prototypeData;
 
 describe('Game', function() {
 
@@ -51,4 +50,5 @@ describe('Game', function() {
     expect(game.currentRound.turns).to.equal(0);
     expect(game.currentRound.currentCard).to.deep.equal(cardOne);
   });
+
 })
