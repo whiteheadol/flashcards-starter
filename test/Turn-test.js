@@ -5,75 +5,57 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
+  let card;
+  let turnOne;
+  let turnTwo;
 
-  //declare variables for what you'll define in beforeEach, using let
-  //in this case, define turn and card with new instances
-  // let turn;
-
-  // beforeEach(() => {
-  // assign variables declared above as instances of card/deck
-  // turn = new Turn()
-  // })
-
-  //automatically invokes inside of each it block
-  //consider if you need it in beforeEach - how many times are you using it?
+  beforeEach(() => {
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turnOne = new Turn('This is my guess', card);
+    turnTwo = new Turn('object', card);
+  })
 
   it('should be a function', function() {
-    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
   it('should be an instance of Turn', function() {
-    const turn = new Turn();
-    expect(turn).to.be.an.instanceof(Turn);
+    expect(turnOne).to.be.an.instanceof(Turn);
   });
 
   it('should accept a user\'s guess', function() {
-    const turn = new Turn('This is my guess');
-    expect(turn.userGuess).to.equal('This is my guess');
+    expect(turnOne.userGuess).to.equal('This is my guess');
   });
 
   it('should contain a card object', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('This is my guess', card);
-    expect(turn.currentCard).to.equal(card);
+    expect(turnOne.currentCard).to.equal(card);
   });
 
   it('should be able to return the user\'s guess', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('This is my guess', card);
-    turn.returnGuess();
-    expect(turn.returnGuess()).to.equal(turn.userGuess);
+    turnOne.returnGuess();
+    expect(turnOne.returnGuess()).to.equal(turnOne.userGuess);
   });
 
   it('should be able to return the user\'s card', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('This is my guess', card);
-    turn.returnCard();
-    expect(turn.returnCard()).to.equal(turn.currentCard);
+    turnOne.returnCard();
+    expect(turnOne.returnCard()).to.equal(turnOne.currentCard);
   });
 
   it('should be able to see if the user chose the correct answer', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('This is my guess', card);
-    turn.evaluateGuess();
-    expect(turn.evaluateGuess()).to.equal(false);
+    turnOne.evaluateGuess();
+    expect(turnOne.evaluateGuess()).to.equal(false);
 
-    const newTurn = new Turn('object', card);
-    newTurn.evaluateGuess();
-    expect(newTurn.evaluateGuess()).to.equal(true);
+    turnTwo.evaluateGuess();
+    expect(turnTwo.evaluateGuess()).to.equal(true);
   });
 
   it('should provide feedback based on the user\'s guess', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('This is my guess', card);
-    turn.evaluateGuess();
-    turn.giveFeedback();
-    expect(turn.giveFeedback()).to.equal('incorrect!');
+    turnOne.evaluateGuess();
+    turnOne.giveFeedback();
+    expect(turnOne.giveFeedback()).to.equal('incorrect!');
 
-    const newTurn = new Turn('object', card);
-    newTurn.evaluateGuess();
-    newTurn.giveFeedback();
-    expect(newTurn.giveFeedback()).to.equal('correct!');
+    turnTwo.evaluateGuess();
+    turnTwo.giveFeedback();
+    expect(turnTwo.giveFeedback()).to.equal('correct!');
   })
 });
