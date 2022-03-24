@@ -7,28 +7,23 @@ class Round {
     this.currentCard = deck.cards[0];
     this.incorrectGuesses = [];
   }
-//start with currentCard hardcoded to the 0 index
 
   returnCurrentCard() {
-    // this.currentCard = this.deck.cards[this.turns];
-    // return this.currentCard;
     return this.deck.cards[this.turns];
   }
 
   takeTurn(guess) {
-    console.log(this.currentCard)
     let newTurn = new Turn(guess, this.currentCard);
     if (guess !== this.currentCard.correctAnswer) {
       this.incorrectGuesses.push(this.currentCard.id);
-      console.log(`incorrect!`);
+      this.turns++;
+      this.currentCard = this.returnCurrentCard();
+      return `incorrect!`;
     } else {
-      console.log(`correct!`);
+      this.turns++;
+      this.currentCard = this.returnCurrentCard();
+      return `correct!`;
     }
-    this.turns++;
-    this.currentCard = this.returnCurrentCard();
-    //ReturnCC should just return a value - set that value somewhere else
-    // return newTurn;
-    console.log(this.currentCard);
   }
 
   calculatePercentCorrect() {

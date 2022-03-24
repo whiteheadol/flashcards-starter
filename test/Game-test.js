@@ -6,15 +6,11 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
+// const prototypeQuestions = data.prototypeData;
 
 describe('Game', function() {
 
-  let cardOne;
-  let cardTwo;
-  let cardThree;
-  let turnOne;
-  let deck;
-  let round;
+  let cardOne, cardTwo, cardThree, turnOne, deck, round;
 
   beforeEach(() => {
     cardOne = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -22,7 +18,6 @@ describe('Game', function() {
     cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     turnOne = new Turn('object', cardOne);
     deck = new Deck([cardOne, cardTwo, cardThree]);
-    //'../src/data'
     round = new Round(deck);
   });
 
@@ -36,22 +31,21 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it.skip('should keep track of the current round', function() {
+  it('should keep track of the current round', function() {
     const game = new Game(round);
-    expect(game.currentRound).to.equal(round);
+    expect(game.currentRound).to.exist;
   });
 
-  it.skip('should be a method to start the game and create cards in the deck', function() {
+  it('should be a method to start the game and create cards in the deck', function() {
     const game = new Game(round);
     game.start();
-    expect(game.deck[0]).to.deep.equal(cardOne);
-    //Check lengths
+    expect(game.currentRound.deck.cards.length).to.equal(30);
+    expect(game.currentRound.deck.cards[0]).to.deep.equal(cardOne);
   });
 
   it.skip('should instantiate a new round using the current deck', function() {
     const game = new Game(round);
     game.start();
-    // game.helperMethod();
     expect(game.currentRound.deck).to.equal(game.deck);
     expect(game.currentRound.turns).to.equal(0);
     expect(game.currentRound.currentCard).to.deep.equal(cardOne);
