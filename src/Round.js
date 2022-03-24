@@ -4,26 +4,23 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turns = 0;
-    this.currentCard = this.returnCurrentCard();
+    this.currentCard = deck.cards[0];
     this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
-    this.currentCard = this.deck.cards[this.turns];
-    return this.currentCard;
+    return this.deck.cards[this.turns];
   }
 
   takeTurn(guess) {
     let newTurn = new Turn(guess, this.currentCard);
-    this.turns++;
-    this.returnCurrentCard();
+    newTurn.evaluateGuess();
     if (guess !== this.currentCard.correctAnswer) {
       this.incorrectGuesses.push(this.currentCard.id);
-      return `incorrect!`;
-    } else {
-      return `correct!`;
     }
-    // return newTurn;
+    this.turns++;
+    this.currentCard = this.returnCurrentCard();
+    return newTurn.giveFeedback();
   }
 
   calculatePercentCorrect() {

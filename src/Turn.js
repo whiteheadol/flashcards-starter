@@ -13,13 +13,18 @@ class Turn {
   }
 
 evaluateGuess() {
-  switch (this.userGuess) {
-    case this.currentCard.correctAnswer:
+  if (this.userGuess === this.currentCard.correctAnswer) {
     return true;
-    break;
-    default:
+  } else {
     return false;
   }
+  // switch (this.userGuess) {
+  //   case this.currentCard.correctAnswer:
+  //   return true;
+  //   break;
+  //   default:
+  //   return false;
+  // }
 }
 
 giveFeedback() {
