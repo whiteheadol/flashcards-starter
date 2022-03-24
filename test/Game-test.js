@@ -41,12 +41,13 @@ describe('Game', function() {
     game.start();
     expect(game.currentRound.deck.cards.length).to.equal(30);
     expect(game.currentRound.deck.cards[0]).to.deep.equal(cardOne);
+    expect(game.currentRound.deck.cards[1]).to.deep.equal(cardTwo);
   });
 
-  it.skip('should instantiate a new round using the current deck', function() {
+  it('should instantiate a new round using the current deck', function() {
     const game = new Game(round);
     game.start();
-    expect(game.currentRound.deck).to.equal(game.deck);
+    expect(game.currentRound.deck).to.exist;
     expect(game.currentRound.turns).to.equal(0);
     expect(game.currentRound.currentCard).to.deep.equal(cardOne);
   });
