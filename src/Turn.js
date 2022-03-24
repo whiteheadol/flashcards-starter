@@ -18,13 +18,6 @@ evaluateGuess() {
   } else {
     return false;
   }
-  // switch (this.userGuess) {
-  //   case this.currentCard.correctAnswer:
-  //   return true;
-  //   break;
-  //   default:
-  //   return false;
-  // }
 }
 
 giveFeedback() {
