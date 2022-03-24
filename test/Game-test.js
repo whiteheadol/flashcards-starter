@@ -36,17 +36,24 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it('the game should keep track of the current round', function() {
+  it.skip('should keep track of the current round', function() {
     const game = new Game(round);
     expect(game.currentRound).to.equal(round);
   });
 
-  it('there should be a method to start the game and create cards', function() {
+  it.skip('should be a method to start the game and create cards in the deck', function() {
     const game = new Game(round);
     game.start();
     expect(game.deck[0]).to.deep.equal(cardOne);
+    //Check lengths
   });
 
-  //within the start method, an iterator to loop through the data array
-  //and instantiate new instances
+  it.skip('should instantiate a new round using the current deck', function() {
+    const game = new Game(round);
+    game.start();
+    // game.helperMethod();
+    expect(game.currentRound.deck).to.equal(game.deck);
+    expect(game.currentRound.turns).to.equal(0);
+    expect(game.currentRound.currentCard).to.deep.equal(cardOne);
+  });
 })

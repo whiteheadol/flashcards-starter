@@ -10,8 +10,8 @@ describe('Turn', function() {
   //in this case, define turn and card with new instances
   // let turn;
 
-  //beforeEach(() => {
-  //assign variables declared above as instances of card/deck
+  // beforeEach(() => {
+  // assign variables declared above as instances of card/deck
   // turn = new Turn()
   // })
 

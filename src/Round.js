@@ -4,26 +4,31 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turns = 0;
-    this.currentCard = this.returnCurrentCard();
+    this.currentCard = deck.cards[0];
     this.incorrectGuesses = [];
   }
+//start with currentCard hardcoded to the 0 index
 
   returnCurrentCard() {
-    this.currentCard = this.deck.cards[this.turns];
-    return this.currentCard;
+    // this.currentCard = this.deck.cards[this.turns];
+    // return this.currentCard;
+    return this.deck.cards[this.turns];
   }
 
   takeTurn(guess) {
+    console.log(this.currentCard)
     let newTurn = new Turn(guess, this.currentCard);
-    this.turns++;
-    this.returnCurrentCard();
     if (guess !== this.currentCard.correctAnswer) {
       this.incorrectGuesses.push(this.currentCard.id);
-      return `incorrect!`;
+      console.log(`incorrect!`);
     } else {
-      return `correct!`;
+      console.log(`correct!`);
     }
+    this.turns++;
+    this.currentCard = this.returnCurrentCard();
+    //ReturnCC should just return a value - set that value somewhere else
     // return newTurn;
+    console.log(this.currentCard);
   }
 
   calculatePercentCorrect() {
