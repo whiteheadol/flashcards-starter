@@ -26,8 +26,8 @@ class Game {
     });
     let anotherDeck = new Deck(newDeck);
     this.currentRound = new Round(anotherDeck);
-    this.printMessage(anotherDeck, this.currentRound);
     this.printQuestion(this.currentRound);
+    this.printMessage(anotherDeck, this.currentRound);
   }
 }
 
